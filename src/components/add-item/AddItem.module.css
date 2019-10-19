@@ -1,0 +1,44 @@
+.AddItem{
+    align-items: center;
+    flex-direction: row;
+    display: inline-flex;
+    margin-bottom: 20px;
+}
+.AddItem .field{
+    background-color: #9f9dff57;
+    width: 250px;
+    padding: 5px;
+    font-size: 16px;
+    border: none;
+    color: #7c818d;
+}
+
+.AddItem .btn{
+    margin: 0 5px 0 5px;
+    width: 30px;
+    font-size: 20px;
+    height: 30px;
+    background: #0000ff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    border-radius: 50%;
+}
+
+.AddItem .btn[disabled]{
+    background-color: #cccccc;
+    color: #d8dfe7;
+    cursor: default;
+}
+
+.AddItem .text{
+    color: blue;
+    font-size: 14px;
+    font-weight: 500;
+}
+.AddItem .text_disabled{
+    color: #cccccc;
+    font-size: 14px;
+    font-weight: 500;
+}

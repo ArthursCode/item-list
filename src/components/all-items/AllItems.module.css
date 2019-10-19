@@ -1,0 +1,12 @@
+.AllItems{
+    box-shadow: 2px -2px 2px #c9c9c9;
+    height: auto;
+    border: 1px solid #c9c9c9;
+}
+.AllItems .header{
+    color: #0000ff;
+    font-size: 14px;
+    text-align: left;
+    padding: 5px 5px 5px 15px;
+    border-bottom: 1px solid #c9c9c9;
+}
