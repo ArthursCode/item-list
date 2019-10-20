@@ -15,7 +15,7 @@ class AllItems extends Component {
                         return <EachItem key={key} item={{key: key, val: val, fromSelected: false}}/>
                     }):
                     <Container className="emptyImg">
-                        <img src={emptyImg} />
+                        <img src={emptyImg} alt="No item" />
                         <div className="text">No new item</div>
                     </Container>
                 }

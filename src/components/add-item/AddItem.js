@@ -24,6 +24,7 @@ class AddItem extends Component {
             <div>
                 <Container>
                     <div className="AlignLeft">
+                        <h4>When you edit item text, save works onblur event</h4>
                         <div className={style.AddItem}>
                             <input className={style.field}
                                    type="text"

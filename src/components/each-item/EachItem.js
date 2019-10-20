@@ -6,6 +6,34 @@ import {faTrashAlt, faPen, faArrowLeft, faArrowRight} from "@fortawesome/free-so
 import {connect} from "react-redux";
 
 class EachItem extends Component {
+    constructor(props){
+        super(props);
+        this.state={
+            disabled: true,
+            text: this.props.item.val
+        }
+    }
+
+    handleTextChange = (e) => {
+        this.setState({
+            text: e.target.value
+        })
+    };
+
+    handleTextSave = (id, fromSelected) => {
+        this.setState({
+            disabled: true
+        });
+        fromSelected? this.props.selectedList[id] = this.state.text:
+        this.props.addedList[id] = this.state.text
+    };
+
+    handleTextEdit = () => {
+        this.setState({
+            disabled: false
+        })
+    };
+
     render() {
         const selectText = this.props.item.fromSelected? 'Unselect' : 'Select';
         return (
@@ -23,7 +51,7 @@ class EachItem extends Component {
                             </div>
                         </Col>
                         <Col className="Padding5">
-                            <div className={[style.EachAction, style.edit].join(' ')}>
+                            <div className={[style.EachAction, style.edit].join(' ')} onClick={this.handleTextEdit}>
                                 <FontAwesomeIcon icon={faPen} />
                                 <div className={style.text}>Edit</div>
                             </div>
@@ -34,13 +62,20 @@ class EachItem extends Component {
                                     this.props.handleUnSelect(this.props.item.key) :
                                     this.props.handleAddToSelected(this.props.item.key)}
                                  className={[style.EachAction, style.select].join(' ')}>
-                                <FontAwesomeIcon icon={this.props.item.fromSelected?faArrowLeft: faArrowRight} />
+                                <FontAwesomeIcon icon={this.props.item.fromSelected? faArrowLeft: faArrowRight} />
                                 <div className={style.text}>{selectText}</div>
                             </div>
                         </Col>
                     </Row>
                     <Row className="PaddingLeftRight10">
-                        <input className={style.input} type="text" value={this.props.item.val} disabled/>
+                        <input className={style.input} type="text"
+                               onChange={this.handleTextChange}
+                               onBlur={() =>
+                                   this.props.item.fromSelected? this.handleTextSave(this.props.item.key, true):
+                                       this.handleTextSave(this.props.item.key, false)
+                               }
+                               defaultValue={this.props.item.val}
+                               disabled={this.state.disabled}/>
                     </Row>
 
                 </Container>

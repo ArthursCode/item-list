@@ -14,7 +14,7 @@ class SelectedItems extends Component {
                         return <EachItem key={key} item={{key: key, val: val, fromSelected: true}}/>
                     }):
                     <Container className="emptyImg">
-                        <img src={emptyImg} alt="No Item"/>
+                        <img src={emptyImg} alt="No item"/>
                         <div className="text">No selected item</div>
                     </Container>
                 }
